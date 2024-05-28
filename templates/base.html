@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ar">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.rtl.min.css" integrity="sha384-PRrgQVJ8NNHGieOA1grGdCTIt4h21CzJs6SnWH4YMQ6G5F5+IEzOHz67L4SQaF0o" crossorigin="anonymous">
+
+    <title> {% block title %} ` {% endblock title %}MarketMingle</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">MarketMingle</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/services" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Services
+                </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/services">Gift Card</a></li>
+                            <li><a class="dropdown-item" href="#">Insurance</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <!---- <li><a class="dropdown-item" href="#">Movies</a></li>-->
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact Us</a>
+                    </li>
+
+                    &nbsp;&nbsp;
+                    <ul style="display: flex; justify-content: flex-end;">
+                        <li class="nav-item">
+                            <a class="btn btn-outline-success" href="/logout">Log Out</a>
+                        </li>
+                    </ul>
+                </ul>
+                <!-- <form class="d-flex" role="search"> 
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Hello guys!</strong> You should check in on some of those fields below.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> -->
+
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <b>{{ message }}</b>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %} {% endif %} {% block body %}{% endblock body %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-body-secondary">&copy; Shop Wave Cop.</p>
+
+            <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="home"><a href="/home" class="home px-2 text-body-secondary">Home</a></li>
+                <li class="about"><a href="/about" class="about px-2 text-body-secondary">About Us</a></li>
+                <li class="services"><a href="/services" class="services px-2 text-body-secondary">Services</a></li>
+                <li class="contact"><a href="/contact" class="contact px-2 text-body-secondary">Contact Us</a></li>
+            </ul>
+        </footer>
+    </div>
+
+</body>
+
+</html>
